@@ -38,6 +38,12 @@ streamlit run app.py
 
 Outputs land in `out/`: `report.md`, `case.json`, and one text file per letter.
 
+## Simulation and pitch deck
+
+`python -m medbill.simulate docs/SIMULATION.md` builds a synthetic 48-line bill for an emergency visit for abdominal pain followed by a laparoscopic cholecystectomy, plants the error types the research found most often, and runs four coverage scenarios (uninsured at a nonprofit, uninsured at a for-profit, insured in network with a high deductible, insured out-of-network emergency) against a rule-based hospital billing office. It prints the priority order the agent uses (dollars at stake times probability of success, recomputed through the patient's deductible and out-of-pocket maximum), a round-by-round transcript, and the outcome against a "patient alone" baseline. Every behavioral assumption is a named constant in `HOSPITAL_POLICY`. Results are expected values under those assumptions, not measurements.
+
+The pitch deck lives in `deck/` as slide files (the same files published to the Claude Slides artifact) and in `docs/SIMULATION.md` for the numbers behind it.
+
 ## Loading real benchmark data
 
 The package ships illustrative Medicare rates so it runs offline. Before using numbers in a real dispute:
@@ -68,7 +74,8 @@ medbill_agent/
     audit.py             Deterministic audit rules
     benchmarks.py        Medicare rates and hospital MRF reader
     eligibility.py       FPL, charity care, 501(r), NSA, state rules
-    strategy.py          Interest-based negotiation plan
+    strategy.py          Interest-based negotiation plan and expected-value prioritization
+    simulate.py          Cholecystectomy bill generator, coverage scenarios, hospital model
     letters.py           Letter and script templates
     agent.py             Claude tool-runner agent and approval gate
     cli.py               Command line
@@ -76,4 +83,6 @@ medbill_agent/
   samples/               Synthetic bill, EOB, patient, and metadata
   tests/                 pytest suite (no network, no API key)
   docs/RESEARCH.md       Market and regulatory research
+  docs/SIMULATION.md     Scenario results and transcripts
+  deck/                  Pitch deck slide files
 ```

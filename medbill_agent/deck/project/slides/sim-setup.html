@@ -1,0 +1,25 @@
+<section id="sim-setup" data-transition="fade" style="background:#FBFBF8;color:#14213D;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:44px">
+<p style="font-size:26px;letter-spacing:4px;text-transform:uppercase;color:#0E7C7B;font-weight:500">Simulation</p>
+<h2 style="font-family:'Domine', Georgia, serif;font-size:72px;font-weight:700;line-height:1.1">One bill, four patients: belly pain in the ED, gallbladder out the next day</h2>
+<div style="display:flex;gap:48px">
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<h3 style="font-size:34px;font-weight:600">The encounter</h3>
+<p style="font-size:28px;line-height:1.45;color:#3D4756">Day 1: level 5 emergency visit, CT abdomen and pelvis, ultrasound, labs, IV fluids and analgesia. Admitted. Day 2: laparoscopic cholecystectomy, general anesthesia, pathology. Day 3: discharged.</p>
+<p style="font-size:28px;line-height:1.45;color:#3D4756">48 itemized lines. Gross charges <b>$104,458</b>, at chargemaster markups of 4x to 25x Medicare. Good faith estimate given to self-pay patients: $38,000.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<h3 style="font-size:34px;font-weight:600">Errors planted, drawn from the audit literature</h3>
+<ul style="font-size:27px;line-height:1.5;color:#3D4756">
+<li>CT abdomen/pelvis and pathology each billed twice</li>
+<li>Hepatic panel, CT pelvis, IV start, and diagnostic laparoscopy unbundled from the codes that include them</li>
+<li>Two emergency visit levels on one encounter</li>
+<li>Venipuncture billed four times in a day</li>
+<li>Room and board on the discharge day</li>
+<li>Gloves, gowns, drapes, and tubing as separate lines</li>
+<li>A $2,400 “miscellaneous OR charge” with no code</li>
+</ul>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;font-size:24px;color:#6A7179">The audit engine finds 20 issues on this bill with no model involved. The hospital’s responses are a rule-based model with stated assumptions, not observed behavior.</p>
+<aside>Make clear this is a synthetic bill. The error types are real and common; the specific hospital responses are assumptions you will show on the last slide.</aside>
+</section>

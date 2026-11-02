@@ -1,0 +1,18 @@
+<section id="audit" data-transition="fade" style="background:#FBFBF8;color:#14213D;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<h2 style="font-family:'Domine', Georgia, serif;font-size:72px;font-weight:700;line-height:1.1">What the audit catches, and how sure it is</h2>
+<table style="font-size:26px;color:#14213D;width:1664px">
+<tr style="background:#14213D;color:#FBFBF8"><th style="width:34%;text-align:left">Rule</th><th style="width:40%;text-align:left">Basis</th><th style="width:13%">Confidence</th><th style="width:13%">Needs record</th></tr>
+<tr><td style="text-align:left">Unbundled code pairs</td><td style="text-align:left">CMS NCCI procedure-to-procedure edits</td><td>fact</td><td>no</td></tr>
+<tr style="background:#F1F3F5"><td style="text-align:left">Balance billing against the EOB</td><td style="text-align:left">Network contract; No Surprises Act for emergencies</td><td>fact</td><td>no</td></tr>
+<tr><td style="text-align:left">Impossible observation hours</td><td style="text-align:left">Hours exceed the encounter window</td><td>fact</td><td>no</td></tr>
+<tr style="background:#F1F3F5"><td style="text-align:left">Duplicate charges</td><td style="text-align:left">Same code, date, unit price</td><td>deduction</td><td>yes</td></tr>
+<tr><td style="text-align:left">Units above the daily ceiling</td><td style="text-align:left">CMS Medically Unlikely Edits</td><td>deduction</td><td>yes</td></tr>
+<tr style="background:#F1F3F5"><td style="text-align:left">Routine supplies billed separately</td><td style="text-align:left">Medicare Provider Reimbursement Manual ch. 22</td><td>deduction</td><td>no</td></tr>
+<tr><td style="text-align:left">Discharge-day room and board, dates outside the stay</td><td style="text-align:left">Medicare midnight rule; admission window</td><td>deduction</td><td>partly</td></tr>
+<tr style="background:#F1F3F5"><td style="text-align:left">Uncoded “miscellaneous” charges</td><td style="text-align:left">Price transparency rule ties every charge to a code</td><td>deduction</td><td>no</td></tr>
+<tr><td style="text-align:left">Emergency department level without supporting intensity</td><td style="text-align:left">Hospital’s own leveling criteria</td><td>speculation</td><td>yes</td></tr>
+<tr style="background:#F1F3F5"><td style="text-align:left">Good faith estimate exceeded by $400 or more</td><td style="text-align:left">No Surprises Act dispute, a remedy not a line error</td><td>fact</td><td>no</td></tr>
+</table>
+<p style="position:absolute;left:128px;bottom:64px;font-size:24px;color:#6A7179">The confidence label travels into the letter. Speculative findings never lead a dispute; they wait for the medical record.</p>
+<aside>Point out that the labels are not decoration. They set the order of the dispute letter and the probability used in the expected-value ranking.</aside>
+</section>

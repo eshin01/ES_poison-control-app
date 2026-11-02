@@ -133,3 +133,45 @@ def _leverage(bill, findings, eligibility, s, charity) -> str:
     if not findings and not charity and bill.insured:
         parts.append("Leverage is weak: no coding findings, no hardship eligibility, and a contractual allowed amount. Expect a payment plan or a modest prompt-pay discount, not a large reduction.")
     return " ".join(parts)
+
+
+# --------------------------------------------------------------------------- prioritization
+
+def prioritize(findings: list[Finding], bill: Bill, eligibility: Optional[EligibilityResult], payoff_fn=None) -> list[dict]:
+    """Rank findings by expected value: disputed dollars times an estimated probability of success.
+
+    Probabilities are heuristics grounded in how billing offices respond: rule-text violations are
+    nearly always corrected; duplicates and unit excesses usually are once the record is pulled;
+    ED leveling challenges without the record rarely are. Coverage changes the payoff: for an
+    in-network insured patient, a facility coding correction moves the patient's balance only
+    through cost sharing, so its value is scaled down; EOB arithmetic is worth face value.
+    """
+    base = {"fact": 0.92, "deduction": 0.65, "speculation": 0.25}
+    rows = []
+    for f in findings:
+        if f.rule in {"gfe_variance", "nsa_balance_billing"}:
+            p, why = 0.0, "Legal remedy with its own process; pursued as an entitlement step, not a line dispute."
+        else:
+            p = base[f.confidence]
+            why = {"fact": "Rests on rule text (NCCI, Medicare manuals, EOB arithmetic).",
+                   "deduction": "Record review usually confirms; ask for the documentation.",
+                   "speculation": "Needs the record before raising; do not lead with it."}[f.confidence]
+            if f.rule == "uncoded_charge":
+                p, why = 0.50, "Hospitals usually itemize or partially remove 'miscellaneous' charges when pressed."
+            if f.rule == "pharmacy_markup":
+                p, why = 0.10, "Lawful markup; fold into the settlement discount instead of disputing line by line."
+            if f.rule in {"balance_billing", "eob_mismatch"}:
+                p, why = 0.98, "Arithmetic against the insurer's EOB; contractually binding."
+            if f.rule == "oon_balance_bill":
+                p, why = 0.45, "Out-of-network balance is negotiable, not void; anchor to the allowed amount or cash price."
+            if f.rule == "denied_lines":
+                p, why = 0.60, "Provider-caused denials are usually written off rather than billed to the patient."
+        payoff = f.disputed_amount
+        if bill.insured and f.rule not in {"balance_billing", "eob_mismatch", "oon_balance_bill", "denied_lines", "nsa_balance_billing"}:
+            # Insured: a facility correction reaches the patient only through cost sharing on the allowed amount.
+            payoff = round(payoff_fn(f.disputed_amount), 2) if payoff_fn else round(payoff * 0.10, 2)
+            why += (" Insured: value to the patient is the change in cost sharing only" + (", which is zero while the out-of-pocket maximum binds." if payoff == 0 else "."))
+        rows.append({"finding": f, "rule": f.rule, "title": f.title, "disputed": f.disputed_amount, "p_success": p,
+                     "expected_value": round(payoff * p, 2), "why": why})
+    rows.sort(key=lambda r: -r["expected_value"])
+    return rows

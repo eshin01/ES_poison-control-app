@@ -14,3 +14,10 @@ cpt_hcpcs,mue,adjudication,rationale
 96360,1,per day,hydration initial hour reported once
 96365,1,per day,IV infusion initial hour reported once
 96374,1,per day,IV push initial drug reported once
+47562,1,per day,one laparoscopic cholecystectomy
+47563,1,per day,one laparoscopic cholecystectomy with cholangiography
+88304,1,per day,one surgical pathology level III for a gallbladder specimen
+74177,1,per day,CT abdomen and pelvis with contrast
+76700,1,per day,complete abdominal ultrasound
+83690,1,per day,lipase
+80076,1,per day,hepatic function panel

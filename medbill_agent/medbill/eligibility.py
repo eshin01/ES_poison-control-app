@@ -63,7 +63,8 @@ def screen(bill: Bill, patient: Optional[PatientProfile], today: Optional[date] 
             res.nsa_ppdr_basis = f"Bill is ${total - bill.good_faith_estimate_total:,.2f} above the good faith estimate (threshold $400)."
             if bill.first_statement_date:
                 res.nsa_ppdr_deadline = bill.first_statement_date + timedelta(days=120)
-    if bill.insured and bill.setting == "emergency":
+    began_in_ed = any(l.cpt_hcpcs in {"99281", "99282", "99283", "99284", "99285", "99291"} for l in bill.lines)
+    if bill.insured and (bill.setting == "emergency" or began_in_ed):
         res.nsa_balance_billing_protected = True
         res.notes.append("Emergency services are protected under the No Surprises Act: the patient owes only in-network cost sharing even if the hospital or ED physician was out of network (42 USC 300gg-111 and 300gg-131).")
     if bill.insured and bill.in_network is False and bill.setting in {"inpatient", "outpatient", "observation"}:

@@ -1,0 +1,29 @@
+<section id="assumptions" data-transition="fade" style="background:#FBFBF8;color:#14213D;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<h2 style="font-family:'Domine', Georgia, serif;font-size:64px;font-weight:700;line-height:1.1">Assumptions behind the simulation, and what is not yet verified</h2>
+<div style="display:flex;gap:48px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px">
+<h3 style="font-size:32px;font-weight:600;color:#0E7C7B">Hospital model</h3>
+<ul style="font-size:25px;line-height:1.5;color:#3D4756">
+<li>Accepts 95% of rule-text findings, 70% of record-dependent ones, 25% of speculative ones</li>
+<li>Removes half of an uncoded miscellaneous charge when pressed</li>
+<li>Self-pay discount 30%; lump-sum settlement 45 to 55% off corrected charges</li>
+<li>Nonprofit assistance: free to 200% of poverty, sliding tiers to 400%, charges capped at amounts generally billed</li>
+<li>Settles at the good faith estimate 80% of the time once a dispute is filed</li>
+<li>Insured hardship reduction of 50% on cost sharing when the policy covers insured patients</li>
+</ul>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px">
+<h3 style="font-size:32px;font-weight:600;color:#E8A33D">Still to verify against primary text</h3>
+<ul style="font-size:25px;line-height:1.5;color:#3D4756">
+<li>The 120-day and 240-day periods in 26 CFR 1.501(r)-6</li>
+<li>The current No Surprises Act dispute filing fee</li>
+<li>2026 federal poverty guidelines (2025 values shipped)</li>
+<li>State protections marked “verify” in the data file</li>
+<li>Illustrative Medicare rates; replace with current CMS files</li>
+<li>Market figures are self-reported by vendors</li>
+</ul>
+</div>
+</div>
+<p style="font-size:26px;line-height:1.45;color:#14213D;background:#FBF1DF;padding:24px 36px;border-radius:16px">Every assumption is a named constant in one dictionary. Change it and the four scenarios rerun in under two seconds. The pilot’s job is to replace these constants with observed rates.</p>
+<aside>End here, not on a send-off. The honest version of this pitch is that the mechanism is built and the behavioral constants need real bills to calibrate.</aside>
+</section>

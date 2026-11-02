@@ -1,0 +1,18 @@
+{
+  "v": 4,
+  "createdOnFiles": {"v": 1, "at": "2026-11-02T18:30:00Z"},
+  "lists": "css",
+  "title": "MedBill Agent Pitch",
+  "order": ["cover", "problem", "why-patients-lose", "landscape", "how-it-works", "audit", "strategy", "sim-setup", "sim-results", "coverage", "transcript", "safety", "roadmap", "assumptions"],
+  "sections": {
+    "s1": {"description": "The problem: hospital bills are wrong, inflated, and patients have no counterparty.", "start": "cover"},
+    "s2": {"description": "The product: an agent that audits, benchmarks, screens, and negotiates behind a human gate.", "start": "how-it-works"},
+    "s3": {"description": "The evidence: a simulated cholecystectomy bill across four coverage situations.", "start": "sim-setup"},
+    "s4": {"description": "Safety, roadmap, and what we are asking for.", "start": "safety"}
+  },
+  "faces": {
+    "domine": {"family": "Domine", "href": "https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap"},
+    "ibm-plex-sans": {"family": "IBM Plex Sans", "href": "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"}
+  },
+  "designSystems": []
+}

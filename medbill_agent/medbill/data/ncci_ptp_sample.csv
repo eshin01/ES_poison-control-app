@@ -35,3 +35,17 @@ column1,column2,modifier_indicator,rationale
 99285,36415,1,Venipuncture is packaged under OPPS with the ED visit (status indicator N)
 99284,36415,1,Venipuncture is packaged under OPPS with the ED visit (status indicator N)
 99283,36415,1,Venipuncture is packaged under OPPS with the ED visit (status indicator N)
+80053,80076,0,Hepatic function panel components (ALT AST alk phos bilirubin albumin total protein) are all within the comprehensive metabolic panel
+80076,84460,0,ALT is a component of the hepatic function panel
+80076,84450,0,AST is a component of the hepatic function panel
+74177,74176,0,CT abdomen/pelvis without contrast is a component of the with-contrast study when performed in one session
+74177,72192,0,CT pelvis is a component of CT abdomen and pelvis
+74177,74160,0,CT abdomen with contrast is a component of CT abdomen and pelvis with contrast
+76700,76705,0,Limited abdominal ultrasound is a component of the complete abdominal ultrasound
+47562,47600,0,Open cholecystectomy is not reported with laparoscopic cholecystectomy
+47562,49320,0,Diagnostic laparoscopy is included in laparoscopic cholecystectomy
+47562,76000,0,Fluoroscopy is included in the surgical procedure
+47563,47562,0,Laparoscopic cholecystectomy without cholangiography is a component of the procedure with cholangiography
+47563,74300,0,Intraoperative cholangiography imaging is included in 47563
+99285,99284,0,Only one ED visit level per encounter
+74177,72193,0,CT pelvis with contrast is a component of CT abdomen and pelvis with contrast

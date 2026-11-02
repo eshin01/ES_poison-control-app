@@ -184,8 +184,11 @@ def rule_routine_supplies(bill: Bill, supplies: Optional[dict] = None) -> list[F
     kws = supplies["keywords"]
     hits = []
     for line in bill.lines:
+        if line.cpt_hcpcs:
+            continue  # a coded lab, drug, or procedure is never a routine supply
         desc = _norm(line.description)
-        if any(k in desc for k in kws) or (line.revenue_code in supplies["revenue_codes_flag"] and not line.cpt_hcpcs and line.total_charge < 500):
+        # whole-word keyword match on the description; revenue-code-only match is limited to cheap 0270-series lines
+        if any(re.search(r"\b" + re.escape(k) + r"s?\b", desc) for k in kws) or (line.revenue_code in {"0270", "0271"} and line.total_charge < 150):
             hits.append(line)
     if not hits:
         return []
@@ -322,17 +325,24 @@ def rule_eob_reconciliation(bill: Bill, eob: Optional[EOB]) -> list[Finding]:
     billed_pr = bill.patient_responsibility if bill.patient_responsibility is not None else bill.computed_total
     if billed_pr - eob_pr > 1.0:
         in_net = eob.in_network if eob.in_network is not None else bill.in_network
+        if in_net:
+            rule, title_tail, expl, conf = "balance_billing", "", (
+                "An in-network provider agreed by contract to accept the plan's allowed amount. Billing the patient for the difference between charges and the allowed amount is balance billing and is prohibited by the network contract. Pay only the EOB patient responsibility and send the EOB with your dispute."), "fact"
+        elif bill.setting == "emergency" or (bill.setting in {"inpatient", "observation"} and bill.admit_date and bill.lines and any(l.cpt_hcpcs in ED_FACILITY_LEVELS for l in bill.lines)):
+            rule, title_tail, expl, conf = "nsa_balance_billing", " (emergency care, No Surprises Act)", (
+                "The encounter began as emergency care. Under the No Surprises Act the patient owes only in-network cost sharing for emergency services and for post-stabilization care until a valid notice and consent is signed, even when the facility is out of network. The provider must remove the balance bill; the plan and provider settle the rest between themselves."), "fact"
+        else:
+            rule, title_tail, expl, conf = "oon_balance_bill", " (out of network)", (
+                "The provider is out of network and, outside No Surprises Act protections, may bill the difference between its charge and what the plan paid. This amount is negotiable: anchor to the plan's allowed amount or the hospital's cash price, and ask the plan for a network-gap exception."), "deduction"
         out.append(Finding(
-            rule="balance_billing" if in_net else "eob_mismatch",
+            rule=rule,
             severity=Severity.high,
             line_ids=[l.line_id for l in bill.lines],
-            title=f"Provider bills ${billed_pr:,.2f} but the insurer's explanation of benefits says you owe ${eob_pr:,.2f}",
-            explanation=("An in-network provider agreed by contract to accept the plan's allowed amount. Billing the patient for the difference between charges and the allowed amount is balance billing and is prohibited by the network contract. Pay only the EOB patient responsibility and send the EOB with your dispute."
-                         if in_net else
-                         "The provider's statement does not match the insurer's determination. Either a payment or adjustment was not posted, or the claim was processed differently. Ask the provider to reconcile to the EOB before paying anything above it."),
+            title=f"Provider bills ${billed_pr:,.2f} but the insurer's explanation of benefits says you owe ${eob_pr:,.2f}" + title_tail,
+            explanation=expl,
             disputed_amount=round(billed_pr - eob_pr, 2),
-            evidence=["Network participation agreement (request a copy of the hold-harmless clause)", "No Surprises Act, 42 USC 300gg-131 to -132, for emergency and certain out-of-network facility-based care"],
-            confidence="fact",
+            evidence=["Network participation agreement (request a copy of the hold-harmless clause)" if in_net else "No Surprises Act, 42 USC 300gg-111, 300gg-131, 300gg-132; 45 CFR 149.410 to 149.420"],
+            confidence=conf,
         ))
     denied = [l for l in eob.lines if l.denial_code and (l.plan_paid or 0) == 0]
     if denied:
@@ -342,7 +352,7 @@ def rule_eob_reconciliation(bill: Bill, eob: Optional[EOB]) -> list[Finding]:
             line_ids=[],
             title=f"{len(denied)} line(s) denied by the insurer",
             explanation="Denied lines are often coding or authorization problems on the provider's side (wrong diagnosis pointer, missing modifier, no prior auth). Provider-caused denials cannot be shifted to the patient under most network contracts. Ask the provider to correct and resubmit, and file a plan appeal in parallel.",
-            disputed_amount=round(sum(l.billed for l in denied), 2),
+            disputed_amount=round(sum((l.patient_responsibility or 0) for l in denied), 2),
             evidence=[f"Denial codes: {', '.join(sorted({l.denial_code for l in denied if l.denial_code}))}"],
             confidence="deduction",
         ))
