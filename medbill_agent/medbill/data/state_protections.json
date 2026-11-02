@@ -1,0 +1,37 @@
+{
+  "_note": "Consumer protections by state as summarized in secondary sources during research on 2026-11-02. Verify each against the statute before citing in a letter. Entries marked verify=true were not confirmed against primary text.",
+  "ALL": [
+    {"text": "Medicare beneficiaries may request a free itemized statement from any provider (Social Security Act section 1806(b)).", "verify": false},
+    {"text": "Patients may obtain their medical records under the HIPAA right of access, 45 CFR 164.524, within 30 days of a written request, which is how disputed line items are confirmed.", "verify": false},
+    {"text": "Nonprofit hospitals must have a written financial assistance policy, cap charges to eligible patients at amounts generally billed to insured patients, and make reasonable efforts to screen for eligibility before extraordinary collection actions (26 USC 501(r); 26 CFR 1.501(r)-4 to -6).", "verify": false},
+    {"text": "Uninsured or self-pay patients billed at least $400 above a good faith estimate may use the federal patient-provider dispute resolution process within 120 days of the bill (No Surprises Act; 45 CFR 149.620).", "verify": false},
+    {"text": "Debt collectors must provide validation information and honor a written dispute within the 30-day validation window (FDCPA 15 USC 1692g; Regulation F, 12 CFR 1006.34).", "verify": false}
+  ],
+  "CO": [
+    {"text": "A written request to a collector for an itemized statement pauses collection until it is provided (SB23-093).", "verify": true},
+    {"text": "Interest on medical debt is capped at 3 percent (SB23-093).", "verify": true},
+    {"text": "Medical debt may not be reported to consumer credit bureaus (HB23-1126).", "verify": true}
+  ],
+  "NY": [
+    {"text": "Medical debt may not be reported to credit bureaus under state law.", "verify": true},
+    {"text": "Hospitals receiving state indigent care pool funds must offer financial assistance on a sliding scale (Public Health Law 2807-k(9-a)).", "verify": true}
+  ],
+  "TX": [
+    {"text": "Providers must give an itemized bill before sending an account to collections (SB 490, 2023).", "verify": true}
+  ],
+  "CA": [
+    {"text": "Hospital Fair Pricing Act: patients at or below 400 percent of the federal poverty level are eligible for discounted or charity care, and eligible patients may not be charged more than the Medicare rate (Health and Safety Code 127400 et seq.).", "verify": true}
+  ],
+  "IL": [
+    {"text": "Hospital Uninsured Patient Discount Act caps charges to eligible uninsured patients at 135 percent of cost.", "verify": true}
+  ],
+  "WA": [
+    {"text": "Charity care is required for patients up to 300 percent of the federal poverty level at large hospitals (RCW 70.170).", "verify": true}
+  ],
+  "MD": [
+    {"text": "Hospitals must provide an itemized bill on request and may not charge interest on medical debt for patients eligible for reduced-cost care.", "verify": true}
+  ],
+  "GA": [
+    {"text": "No state-level itemized-bill mandate or medical debt credit reporting ban was identified in secondary sources; rely on federal rights and the hospital's own financial assistance policy.", "verify": true}
+  ]
+}

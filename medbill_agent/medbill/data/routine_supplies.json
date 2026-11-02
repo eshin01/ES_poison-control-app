@@ -1,0 +1,12 @@
+{
+  "_note": "Items Medicare treats as routine supplies included in the room-and-board or procedure charge rather than separately billable. Source: CMS Provider Reimbursement Manual Part 1, chapter 22, sections 2202.6 and 2203 (routine services and supplies). Commercial payers and self-pay patients can cite the same standard.",
+  "keywords": [
+    "gloves", "glove", "gown", "drape", "mask", "gauze", "bandage", "band-aid", "tape", "cotton", "swab", "alcohol prep",
+    "syringe", "needle", "iv tubing", "iv start kit", "tubing", "saline flush", "flush", "sharps", "specimen cup",
+    "urinal", "bedpan", "pillow", "blanket", "linen", "thermometer probe cover", "probe cover", "pulse ox probe",
+    "ekg electrode", "electrode", "lead wire", "tongue depressor", "lubricant", "wipes", "tissue", "chux", "underpad",
+    "oxygen tubing", "nasal cannula", "suction tubing", "tourniquet", "arm board", "ice pack", "warm pack", "basin",
+    "admission kit", "admit kit", "patient kit", "hygiene kit", "toothbrush", "comb", "cup", "straw", "water pitcher"
+  ],
+  "revenue_codes_flag": ["0270", "0271", "0272", "0279"]
+}

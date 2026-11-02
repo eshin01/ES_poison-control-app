@@ -1,0 +1,15 @@
+{
+  "provider_name": "Example Regional Medical Center",
+  "provider_type": "hospital_facility",
+  "nonprofit": true,
+  "state": "GA",
+  "account_number": "A-2026-00417",
+  "patient_name": "Sample Patient",
+  "admit_date": "2026-09-14",
+  "discharge_date": "2026-09-15",
+  "setting": "emergency",
+  "first_statement_date": "2026-10-01",
+  "insured": false,
+  "good_faith_estimate_total": 9500.00,
+  "patient_responsibility": 25525.00
+}

@@ -1,0 +1,37 @@
+column1,column2,modifier_indicator,rationale
+80053,80048,0,Basic metabolic panel is a component of the comprehensive metabolic panel
+80053,84460,0,ALT is a component of the comprehensive metabolic panel
+80053,84450,0,AST is a component of the comprehensive metabolic panel
+80053,84075,0,Alkaline phosphatase is a component of the comprehensive metabolic panel
+80053,82947,0,Glucose is a component of the comprehensive metabolic panel
+80053,82565,0,Creatinine is a component of the comprehensive metabolic panel
+80053,84132,0,Potassium is a component of the comprehensive metabolic panel
+80053,84295,0,Sodium is a component of the comprehensive metabolic panel
+80053,82310,0,Calcium is a component of the comprehensive metabolic panel
+80053,82374,0,CO2 is a component of the comprehensive metabolic panel
+80053,82435,0,Chloride is a component of the comprehensive metabolic panel
+80053,84520,0,BUN is a component of the comprehensive metabolic panel
+80053,82247,0,Total bilirubin is a component of the comprehensive metabolic panel
+80053,84155,0,Total protein is a component of the comprehensive metabolic panel
+80053,82040,0,Albumin is a component of the comprehensive metabolic panel
+80048,82947,0,Glucose is a component of the basic metabolic panel
+80048,82565,0,Creatinine is a component of the basic metabolic panel
+80048,84132,0,Potassium is a component of the basic metabolic panel
+80048,84295,0,Sodium is a component of the basic metabolic panel
+80048,84520,0,BUN is a component of the basic metabolic panel
+85025,85027,0,CBC without differential is a component of CBC with differential
+85025,85007,0,Manual differential is bundled with automated CBC with differential
+80061,82465,0,Total cholesterol is a component of the lipid panel
+80061,83718,0,HDL is a component of the lipid panel
+80061,84478,0,Triglycerides are a component of the lipid panel
+93000,93010,0,ECG interpretation is a component of the complete ECG
+93000,93005,0,ECG tracing is a component of the complete ECG
+71046,71045,0,Single-view chest X-ray is a component of the two-view study
+96365,36000,0,IV placement is included in IV infusion
+96360,36000,0,IV placement is included in hydration
+96374,36000,0,IV placement is included in IV push
+96365,96360,1,Hydration concurrent with therapeutic infusion is not separately payable unless sequential
+96365,96372,1,Injection is bundled with infusion in the same encounter unless a modifier documents a separate site or time
+99285,36415,1,Venipuncture is packaged under OPPS with the ED visit (status indicator N)
+99284,36415,1,Venipuncture is packaged under OPPS with the ED visit (status indicator N)
+99283,36415,1,Venipuncture is packaged under OPPS with the ED visit (status indicator N)

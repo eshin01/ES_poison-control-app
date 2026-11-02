@@ -1,0 +1,7 @@
+{
+  "_note": "HHS poverty guidelines. 2025 values for the 48 contiguous states and DC (Federal Register, Jan 2025). Alaska and Hawaii differ. Update annually; the 2026 guidelines publish each January.",
+  "year": 2025,
+  "contiguous": {"base": 15650, "per_additional_person": 5500},
+  "AK": {"base": 19550, "per_additional_person": 6880},
+  "HI": {"base": 17990, "per_additional_person": 6325}
+}

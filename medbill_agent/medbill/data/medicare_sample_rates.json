@@ -1,0 +1,33 @@
+{
+  "_note": "ILLUSTRATIVE national Medicare payment amounts, rounded, approximating 2024-2025 OPPS and PFS. These are placeholders so the pipeline runs offline. Replace with the current CMS OPPS Addendum B and PFS national payment file via benchmarks.load_cms_files() before using numbers in a real dispute.",
+  "rates": {
+    "99281": {"amount": 75, "source": "OPPS APC 5021 (illustrative)"},
+    "99282": {"amount": 140, "source": "OPPS APC 5022 (illustrative)"},
+    "99283": {"amount": 250, "source": "OPPS APC 5023 (illustrative)"},
+    "99284": {"amount": 420, "source": "OPPS APC 5024 (illustrative)"},
+    "99285": {"amount": 630, "source": "OPPS APC 5025 (illustrative)"},
+    "99291": {"amount": 760, "source": "OPPS APC 5041 (illustrative)"},
+    "70450": {"amount": 130, "source": "OPPS APC 5522 (illustrative)"},
+    "71046": {"amount": 70, "source": "OPPS APC 5521 (illustrative)"},
+    "74177": {"amount": 380, "source": "OPPS APC 5523 (illustrative)"},
+    "93000": {"amount": 25, "source": "PFS (illustrative)"},
+    "93010": {"amount": 9, "source": "PFS (illustrative)"},
+    "93005": {"amount": 15, "source": "PFS (illustrative)"},
+    "80053": {"amount": 11, "source": "Clinical Lab Fee Schedule (illustrative)"},
+    "80048": {"amount": 9, "source": "Clinical Lab Fee Schedule (illustrative)"},
+    "85025": {"amount": 8, "source": "Clinical Lab Fee Schedule (illustrative)"},
+    "85027": {"amount": 7, "source": "Clinical Lab Fee Schedule (illustrative)"},
+    "80061": {"amount": 14, "source": "Clinical Lab Fee Schedule (illustrative)"},
+    "84484": {"amount": 14, "source": "Clinical Lab Fee Schedule (illustrative)"},
+    "81001": {"amount": 3, "source": "Clinical Lab Fee Schedule (illustrative)"},
+    "36415": {"amount": 3, "source": "Clinical Lab Fee Schedule (illustrative)"},
+    "96360": {"amount": 200, "source": "OPPS APC 5691 (illustrative)"},
+    "96365": {"amount": 200, "source": "OPPS APC 5691 (illustrative)"},
+    "96374": {"amount": 200, "source": "OPPS APC 5691 (illustrative)"},
+    "96372": {"amount": 60, "source": "OPPS APC 5691 (illustrative)"},
+    "J1885": {"amount": 1, "source": "ASP drug fee schedule (illustrative)"},
+    "J2405": {"amount": 1, "source": "ASP drug fee schedule (illustrative)"},
+    "J7030": {"amount": 2, "source": "ASP drug fee schedule (illustrative)"},
+    "G0378": {"amount": 100, "source": "OPPS observation per hour (illustrative; payment is via APC 8011 comprehensive)"}
+  }
+}

@@ -1,0 +1,6 @@
+cpt_hcpcs,description,billed,allowed,plan_paid,patient_responsibility,denial_code,denial_reason
+99285,ED visit level 5,3890.00,1150.00,900.00,250.00,,
+70450,CT head,2975.00,420.00,336.00,84.00,,
+80053,CMP,412.00,14.00,14.00,0.00,,
+85025,CBC,245.00,10.00,10.00,0.00,,
+96365,IV infusion,1240.00,0.00,0.00,0.00,CO-97,Payment included in another service

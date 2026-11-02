@@ -1,0 +1,16 @@
+cpt_hcpcs,mue,adjudication,rationale
+99281,1,per day,one ED visit level per date of service
+99282,1,per day,one ED visit level per date of service
+99283,1,per day,one ED visit level per date of service
+99284,1,per day,one ED visit level per date of service
+99285,1,per day,one ED visit level per date of service
+99291,1,per day,critical care first hour reported once per day
+36415,1,per day,one collection by venipuncture per day
+85025,1,per day,one CBC with differential per day is typical; more requires documentation
+80053,1,per day,one comprehensive metabolic panel per day is typical
+70450,2,per day,CT head without contrast
+71046,2,per day,chest X-ray two views
+93000,2,per day,ECG
+96360,1,per day,hydration initial hour reported once
+96365,1,per day,IV infusion initial hour reported once
+96374,1,per day,IV push initial drug reported once
